@@ -3,8 +3,7 @@ import {
   ChangeEvent,
   useEffect,
   useRef,
-  KeyboardEvent,
-  useCallback,
+  KeyboardEvent
 } from "react";
 import { useDebouncedCallback } from "../../hooks/useCallbackDebounce";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
@@ -43,18 +42,18 @@ export function Autocomplete() {
     setValue(e.target.value);
   };
 
-  const resetActiveElement = useCallback(() => {
+  const resetActiveElement = () => {
     setActiveItemIndex(0);
-  }, [setActiveItemIndex]);
+  };
 
-  const closeDropdown = useCallback(() => {
+  const closeDropdown = () => {
     setSuggestionsExpanded(false);
     resetActiveElement();
-  }, [setSuggestionsExpanded]);
+  };
 
-  const showDropdown = useCallback(() => {
+  const showDropdown = () => {
     setSuggestionsExpanded(true);
-  }, [setSuggestionsExpanded]);
+  };
 
   const handleClick = (event: MouseEvent) => {
     const isTriggeredAnchorEl =

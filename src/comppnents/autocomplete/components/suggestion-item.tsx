@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { ISuggestionsCommonProps } from "../../../types";
 
 interface ISuggestionItemProps extends ISuggestionsCommonProps {
@@ -22,7 +21,8 @@ export const SuggestionItem = ({
     setFocusedItem(index);
   };
 
-  const renderSuggestionValue = useCallback(() => {
+  // think on useMemo here
+  const renderSuggestionValue = () => {
     if (!searchString) {
       return value;
     }
@@ -33,7 +33,7 @@ export const SuggestionItem = ({
       if (regexp.test(part)) return <mark key={index}>{part}</mark>;
       return part;
     });
-  }, [searchString, value]);
+  };
 
   const className = `suggestion-item ${activeItemIndex === index ? "active" : ""}`;
 
