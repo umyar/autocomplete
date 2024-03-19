@@ -18,7 +18,7 @@ export const SuggestionItem = ({
     chooseSuggestion(value);
   };
 
-  const handleMouseMoveOnSuggestion = () => {
+  const handleMouseEnterOnSuggestion = () => {
     setFocusedItem(index);
   };
 
@@ -38,11 +38,10 @@ export const SuggestionItem = ({
   const className = `suggestion-item ${activeItemIndex === index ? "active" : ""}`;
 
   return (
-    // I'm not sure that onMouseMove ok here, have to think on it
     <li
       className={className}
       onClick={handleClickSuggestion}
-      onMouseMove={handleMouseMoveOnSuggestion}
+      onMouseEnter={handleMouseEnterOnSuggestion}
       role="option"
     >
       {renderSuggestionValue()}

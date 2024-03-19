@@ -137,9 +137,9 @@ export function Autocomplete() {
     suggestions.length === 1 && suggestions[0].value === value;
   const isSuggestionsVisible = Boolean(
     suggestionsExpanded &&
-      value &&
-      suggestions.length &&
-      !onlySelectedSuggestion
+    value &&
+    suggestions.length &&
+    !onlySelectedSuggestion
   );
 
   return (
